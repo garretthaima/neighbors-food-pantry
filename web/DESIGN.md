@@ -8,30 +8,30 @@ Archivo.
 ## Tokens
 
 - All colours, radii, shadows, spacing and type sizes are tokens in
-  `src/ui/tokens.css`. Component CSS uses `var(--token)` and nothing raw.
+  `src/shared/ui/tokens.css`. Component CSS uses `var(--token)` and nothing raw.
 - No fallback values: `var(--bg-card)`, never `var(--bg-card, #fff)`.
 - Type sizes come from `--step-*`. Headings that should look like ticket
   numerals take the `.display` class (narrow, heavy Archivo).
 
 ## Which button
 
-Always `<Button variant>` from `src/ui/Button.tsx`, never a bare `<button>`
+Always `<Button variant>` from `src/shared/ui/Button.tsx`, never a bare `<button>`
 with its own styling.
 
-| Variant | Use |
-|---|---|
-| `cta` | The single most important action on a screen. At most one. |
-| `primary` | Confirms a form or dialog. |
-| `secondary` | Other actions beside a primary or cta. The default. |
-| `ghost` | Low-emphasis actions repeated per row: undo, cancel, steppers. |
-| `danger-outline` | Opens a destructive flow. |
-| `danger` | Confirms the destructive action, inside `ConfirmDialog`. |
-| `link` | A row's title that opens that row. Never wrap a whole row in a button. |
+| Variant          | Use                                                                    |
+| ---------------- | ---------------------------------------------------------------------- |
+| `cta`            | The single most important action on a screen. At most one.             |
+| `primary`        | Confirms a form or dialog.                                             |
+| `secondary`      | Other actions beside a primary or cta. The default.                    |
+| `ghost`          | Low-emphasis actions repeated per row: undo, cancel, steppers.         |
+| `danger-outline` | Opens a destructive flow.                                              |
+| `danger`         | Confirms the destructive action, inside `ConfirmDialog`.               |
+| `link`           | A row's title that opens that row. Never wrap a whole row in a button. |
 
 A button label says what happens, and the toast that follows uses the same
 words: "Add shelf" gives "Shelf added".
 
-## Other primitives (`src/ui/`)
+## Other primitives (`src/shared/ui/`)
 
 - **Badge**: status pills. The text carries the meaning; colour reinforces it.
 - **ResponsivePanel**: every dialog. Modal from 768px, bottom sheet below.
@@ -44,11 +44,11 @@ words: "Add shelf" gives "Shelf added".
 
 ## Showing errors and results
 
-| Situation | Use |
-|---|---|
-| Result of something the person just did | Toast (`useToast`). Errors stay 10s. |
-| A page failed to load | `ErrorAlert` with a retry. Never a reload. |
-| A form field is wrong | The field's own error, via `FormField`. |
+| Situation                               | Use                                        |
+| --------------------------------------- | ------------------------------------------ |
+| Result of something the person just did | Toast (`useToast`). Errors stay 10s.       |
+| A page failed to load                   | `ErrorAlert` with a retry. Never a reload. |
+| A form field is wrong                   | The field's own error, via `FormField`.    |
 
 The scan list is the one exception: scan results land in the list, where
 the volunteer is already looking. Never swallow a `catch`.

@@ -1,0 +1,88 @@
+/*
+  Design tokens: the only place raw colours, sizes, radii and shadows live.
+  Component CSS uses var(--token) with no fallback value. See web/DESIGN.md.
+*/
+:root {
+    /* Surfaces */
+    --bg-page: #f2f5f0;
+    --bg-card: #ffffff;
+    --bg-raised: #f7f9f5;
+    --bg-hover: #e8eee6;
+
+    /* Text (all AA on every surface above) */
+    --text-primary: #14261d;
+    --text-secondary: #43524a;
+    --text-muted: #5c6962;
+    --text-on-brand: #ffffff;
+
+    --border-color: #d3dbd3;
+    --border-strong: #8c9a92;
+
+    /* Brand: spruce green, and the yellow of a shelf-edge price tag */
+    --brand-green: #1f5a40;
+    --brand-green-light: #2a7354;
+    --brand-green-dark: #17432f;
+    --brand-green-subtle: #e3efe8;
+    --brand-tag: #f7d046;
+    --brand-tag-light: #fadc70;
+    --brand-tag-dark: #d4ad1c;
+    --brand-tag-subtle: #fdf5d3;
+    --color-on-tag: #14261d;
+
+    /* Semantic */
+    --color-success: #1f5a40;
+    --color-success-subtle: #e3efe8;
+    --color-danger: #c2371f;
+    --color-danger-dark: #a02a15;
+    --color-danger-text: #8f2412;
+    --color-danger-subtle: #fbe9e5;
+    --color-warning-text: #7a4a03;
+    --color-warning-subtle: #fcefd8;
+
+    --overlay: rgb(20 38 29 / 0.55);
+    --hover-on-dark: rgb(255 255 255 / 0.15);
+    --shadow-sm: 0 1px 2px rgb(20 38 29 / 0.08);
+    --shadow: 0 4px 18px rgb(20 38 29 / 0.08);
+    --shadow-lg: 0 12px 40px rgb(20 38 29 / 0.2);
+    --focus-ring: 0 0 0 2px var(--bg-card), 0 0 0 5px var(--brand-tag-dark);
+
+    /* Radii */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-pill: 999px;
+
+    /* Spacing */
+    --space-3xs: 0.125rem;
+    --space-2xs: 0.25rem;
+    --space-xs: 0.5rem;
+    --space-s: 0.75rem;
+    --space-m: 1rem;
+    --space-l: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+
+    /* Type scale */
+    --step--1: 0.84rem;
+    --step-0: 1rem;
+    --step-1: 1.125rem;
+    --step-2: 1.35rem;
+    --step-3: 1.7rem;
+    --step-4: 2.2rem;
+    --step-5: 2.8rem;
+
+    --font-primary: 'Archivo Variable', system-ui, sans-serif;
+    /* Display is the same family set narrow and heavy, like ticket numerals. */
+    --display-stretch: 68%;
+    --display-weight: 800;
+
+    /* Sizes */
+    --touch: 2.75rem; /* 44px minimum touch target */
+    --measure: 60rem;
+    --bottom-nav: 4rem;
+    --masthead: 3.75rem;
+
+    --z-nav: 20;
+    --z-toast: 60;
+}

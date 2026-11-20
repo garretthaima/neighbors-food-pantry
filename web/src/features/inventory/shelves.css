@@ -1,0 +1,40 @@
+/* ---- Shelves ----------------------------------------------------------- */
+
+.shelf {
+    margin-bottom: var(--space-l);
+}
+
+/* The yellow ticket strip clipped to the front edge of a store shelf. */
+.shelf-tag {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-m);
+    padding: var(--space-xs) var(--space-m);
+    background: var(--brand-tag);
+    border-bottom: 3px solid var(--text-primary);
+    color: var(--color-on-tag);
+}
+
+.shelf-tag h2 {
+    font-size: var(--step-3);
+}
+
+.shelf-tag span {
+    font-size: var(--step--1);
+    font-weight: 650;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+.shelf-tag.unplaced {
+    background: var(--bg-hover);
+    border-bottom-color: var(--border-strong);
+}
+
+.card-title {
+    padding: var(--space-s) var(--space-m);
+    border-bottom: 1px solid var(--border-color);
+    background: var(--bg-raised);
+    font-size: var(--step-1);
+}

@@ -1,0 +1,132 @@
+/* ---- Button ------------------------------------------------------------ */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    min-height: var(--touch);
+    padding: var(--space-xs) var(--space-m);
+    border: 1.5px solid transparent;
+    border-radius: var(--radius-md);
+    background: none;
+    font-weight: 650;
+    font-size: var(--step-0);
+    line-height: 1.2;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        background-color 0.12s,
+        border-color 0.12s;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.btn svg {
+    flex: none;
+}
+
+.btn-sm {
+    min-height: 2.25rem;
+    padding: var(--space-2xs) var(--space-s);
+    font-size: var(--step--1);
+}
+
+.btn-lg {
+    min-height: 3.25rem;
+    padding: var(--space-s) var(--space-l);
+    font-size: var(--step-1);
+}
+
+.btn-block {
+    width: 100%;
+}
+
+.btn-icon {
+    width: var(--touch);
+    padding: 0;
+    border-radius: var(--radius-pill);
+}
+
+/* The one call to action on a screen. */
+.btn-cta {
+    background: var(--brand-tag);
+    border-color: var(--brand-tag-dark);
+    color: var(--color-on-tag);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-cta:hover:not(:disabled) {
+    background: var(--brand-tag-light);
+}
+
+.btn-primary {
+    background: var(--brand-green);
+    border-color: var(--brand-green);
+    color: var(--text-on-brand);
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: var(--brand-green-dark);
+    border-color: var(--brand-green-dark);
+}
+
+.btn-secondary {
+    background: var(--bg-card);
+    border-color: var(--brand-green);
+    color: var(--brand-green);
+}
+
+.btn-secondary:hover:not(:disabled) {
+    background: var(--brand-green-subtle);
+}
+
+.btn-ghost {
+    color: var(--text-primary);
+}
+
+.btn-ghost:hover:not(:disabled) {
+    background: var(--bg-hover);
+}
+
+.btn-danger {
+    background: var(--color-danger);
+    border-color: var(--color-danger);
+    color: var(--text-on-brand);
+}
+
+.btn-danger:hover:not(:disabled) {
+    background: var(--color-danger-dark);
+    border-color: var(--color-danger-dark);
+}
+
+.btn-danger-outline {
+    background: var(--bg-card);
+    border-color: var(--color-danger);
+    color: var(--color-danger-text);
+}
+
+.btn-danger-outline:hover:not(:disabled) {
+    background: var(--color-danger-subtle);
+}
+
+/* Looks like text; used where a row's title opens that row. */
+.btn-link {
+    min-height: 0;
+    padding: 0;
+    border: 0;
+    border-radius: var(--radius-sm);
+    color: inherit;
+    font-weight: inherit;
+    text-align: left;
+    text-decoration: underline;
+    text-decoration-color: var(--border-strong);
+    text-underline-offset: 3px;
+}
+
+.btn-link:hover:not(:disabled) {
+    text-decoration-color: currentColor;
+}

@@ -1,0 +1,60 @@
+/* ---- Page head and toolbar --------------------------------------------- */
+
+.page-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-xs) var(--space-m);
+    margin-bottom: var(--space-m);
+}
+
+.page-head h1 {
+    font-size: var(--step-5);
+}
+
+.page-head-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+}
+
+.toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-s);
+    margin-bottom: var(--space-l);
+}
+
+.search {
+    position: relative;
+    flex: 1 1 16rem;
+}
+
+.search svg {
+    position: absolute;
+    left: var(--space-s);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    pointer-events: none;
+}
+
+.search .control {
+    padding-left: calc(var(--space-s) * 2 + 18px);
+}
+
+.filter {
+    flex: 0 1 auto;
+}
+
+.filter button {
+    flex-basis: auto;
+}
+
+.toolbar-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+}

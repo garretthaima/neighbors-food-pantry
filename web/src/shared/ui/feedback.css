@@ -1,0 +1,67 @@
+/* ---- ErrorAlert, EmptyState, Skeleton ---------------------------------- */
+
+.error-alert {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-s);
+    padding: var(--space-s) var(--space-m);
+    border: 1px solid var(--color-danger);
+    border-radius: var(--radius-lg);
+    background: var(--color-danger-subtle);
+    color: var(--color-danger-text);
+    font-weight: 550;
+}
+
+.error-alert p {
+    flex: 1 1 14rem;
+}
+
+.empty-state {
+    display: grid;
+    justify-items: center;
+    gap: var(--space-s);
+    max-width: 28rem;
+    margin: var(--space-xl) auto;
+    padding: var(--space-l) var(--space-m);
+    text-align: center;
+}
+
+.empty-state-icon {
+    display: grid;
+    place-items: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: var(--radius-lg);
+    background: var(--brand-tag-subtle);
+    color: var(--brand-green);
+}
+
+.empty-state h1,
+.empty-state h2 {
+    font-size: var(--step-3);
+}
+
+.empty-state p {
+    color: var(--text-secondary);
+}
+
+.empty-state-action {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-xs);
+    margin-top: var(--space-xs);
+}
+
+.skeleton {
+    border-radius: var(--radius-md);
+    background: var(--bg-hover);
+    animation: skeleton-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes skeleton-pulse {
+    50% {
+        opacity: 0.5;
+    }
+}

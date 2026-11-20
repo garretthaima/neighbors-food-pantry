@@ -1,0 +1,8 @@
+node_modules
+dist
+.devdb
+package-lock.json
+test-results
+playwright-report
+deploy/chart
+server/migrations

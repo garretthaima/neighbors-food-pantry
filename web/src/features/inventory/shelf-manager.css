@@ -1,0 +1,32 @@
+/* ---- Shelf manager ---------------------------------------------------- */
+
+.shelf-list {
+    margin-top: var(--space-m);
+    border-top: 1px solid var(--border-color);
+}
+
+.shelf-list li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-2xs) 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.shelf-list-name {
+    flex: 1;
+    min-width: 0;
+    font-weight: 650;
+    overflow-wrap: anywhere;
+}
+
+.shelf-rename {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.shelf-rename .field {
+    flex: 1;
+}

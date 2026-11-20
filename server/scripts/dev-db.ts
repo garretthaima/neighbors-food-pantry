@@ -18,7 +18,7 @@ console.log(`Postgres ready: ${localUrl(PORT)}`);
 console.log('Ctrl+C to stop.');
 
 for (const signal of ['SIGTERM', 'SIGINT'] as const) {
-  process.on(signal, () => {
-    void db.stop().then(() => process.exit(0));
-  });
+    process.on(signal, () => {
+        void db.stop().then(() => process.exit(0));
+    });
 }

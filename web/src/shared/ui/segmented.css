@@ -1,0 +1,38 @@
+/* ---- Segmented control ------------------------------------------------- */
+
+.segmented {
+    --segment-active: var(--brand-green);
+    display: flex;
+    flex-wrap: wrap; /* never a hidden horizontal scroll */
+    gap: var(--space-2xs);
+    padding: var(--space-2xs);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    background: var(--bg-raised);
+}
+
+.segmented button {
+    flex: 1 1 8rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    min-height: var(--touch);
+    padding: var(--space-xs) var(--space-s);
+    border: 0;
+    border-radius: var(--radius-md);
+    background: none;
+    color: var(--text-secondary);
+    font-weight: 650;
+    cursor: pointer;
+}
+
+.segmented button:hover {
+    background: var(--bg-hover);
+}
+
+.segmented button[aria-checked='true'] {
+    background: var(--segment-active);
+    color: var(--text-on-brand);
+    box-shadow: var(--shadow-sm);
+}

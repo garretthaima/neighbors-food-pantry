@@ -1,0 +1,64 @@
+/* ---- Toast ------------------------------------------------------------- */
+
+.toasts {
+    /* Reset the browser's popover box; this is only a positioned stack. */
+    inset: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    overflow: visible;
+    position: fixed;
+    left: 50%;
+    bottom: calc(var(--space-m) + env(safe-area-inset-bottom));
+    z-index: var(--z-toast);
+    transform: translateX(-50%);
+    gap: var(--space-xs);
+    width: min(26rem, calc(100vw - 2 * var(--space-m)));
+    pointer-events: none;
+}
+
+.toasts:popover-open {
+    display: grid;
+}
+
+.toast {
+    display: flex;
+    align-items: center;
+    gap: var(--space-s);
+    padding: var(--space-xs) var(--space-xs) var(--space-xs) var(--space-m);
+    border-radius: var(--radius-lg);
+    background: var(--text-primary);
+    color: var(--text-on-brand);
+    box-shadow: var(--shadow-lg);
+    font-weight: 550;
+    animation: toast-in 0.18s ease-out;
+}
+
+/* A toast never blocks what is under it: only its close button takes taps. */
+.toast .btn {
+    pointer-events: auto;
+}
+
+.toast p {
+    flex: 1;
+}
+
+.toast-error {
+    background: var(--color-danger-dark);
+}
+
+.toast .btn-ghost {
+    color: var(--text-on-brand);
+}
+
+.toast .btn-ghost:hover {
+    background: var(--hover-on-dark);
+}
+
+@keyframes toast-in {
+    from {
+        opacity: 0;
+        transform: translateY(0.5rem);
+    }
+}

@@ -1,0 +1,26 @@
+/* ---- PIN gate --------------------------------------------------------- */
+
+.gate {
+    display: grid;
+    justify-items: center;
+    gap: var(--space-s);
+    max-width: 24rem;
+    margin: var(--space-xl) auto;
+    padding: var(--space-l);
+    text-align: center;
+}
+
+.gate h1 {
+    font-size: var(--step-3);
+}
+
+.gate p {
+    color: var(--text-secondary);
+}
+
+.pin-form {
+    display: grid;
+    gap: var(--space-s);
+    width: 100%;
+    text-align: left;
+}

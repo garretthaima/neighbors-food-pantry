@@ -1,0 +1,61 @@
+/* ---- Scan -------------------------------------------------------------- */
+
+.scan-card {
+    --mode: var(--brand-green);
+    display: grid;
+    gap: var(--space-m);
+    padding: var(--space-m);
+    margin-bottom: var(--space-l);
+    border-top: 6px solid var(--mode);
+}
+
+.scan-card.is-giving {
+    --mode: var(--color-danger);
+}
+
+.scan-card .segmented {
+    --segment-active: var(--mode);
+}
+
+.scan-label {
+    display: block;
+    margin-bottom: var(--space-xs);
+    font-weight: 650;
+}
+
+.scan-row {
+    display: flex;
+    gap: var(--space-xs);
+}
+
+.scan-input {
+    flex: 1;
+    min-width: 0;
+    min-height: 3.25rem;
+    border-width: 2px;
+    border-color: var(--text-primary);
+    font-size: var(--step-3);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.04em;
+}
+
+.scan-options {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: var(--space-s);
+}
+
+.scan-options .field {
+    flex: 0 1 18rem;
+}
+
+.camera video {
+    width: 100%;
+    max-height: 50vh;
+    border-radius: var(--radius-md);
+    background: var(--text-primary);
+    object-fit: cover;
+}

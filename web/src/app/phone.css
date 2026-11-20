@@ -1,0 +1,103 @@
+/* ---- Phone: nav at the thumb, rows wrap -------------------------------- */
+
+@media (max-width: 47.99rem) {
+    /* The bottom of a phone screen holds the nav and whatever was just
+     scanned, so toasts drop in under the masthead instead. */
+    .toasts {
+        top: calc(var(--masthead) + var(--space-xs));
+        bottom: auto;
+    }
+
+    .main-nav {
+        position: fixed;
+        inset: auto 0 0;
+        z-index: var(--z-nav);
+        justify-content: space-around;
+        gap: 0;
+        padding: var(--space-2xs) var(--space-xs) max(var(--space-2xs), env(safe-area-inset-bottom));
+        border-top: 1px solid var(--border-color);
+        background: var(--bg-card);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .main-nav a {
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+        gap: var(--space-3xs);
+        min-height: calc(var(--bottom-nav) - var(--space-xs));
+        padding: var(--space-2xs);
+        border-radius: var(--radius-md);
+        font-size: var(--step--1);
+    }
+
+    .main-nav a[aria-current='page'] {
+        background: var(--brand-green-subtle);
+        color: var(--brand-green-dark);
+    }
+
+    main {
+        padding-top: var(--space-m);
+        padding-bottom: calc(var(--bottom-nav) + var(--space-xl));
+    }
+
+    .wordmark {
+        font-size: var(--step-2);
+    }
+
+    .page-head h1 {
+        font-size: var(--step-4);
+    }
+
+    .filter {
+        flex: 1 1 100%;
+    }
+
+    .filter button {
+        flex: 1;
+    }
+
+    .toolbar-actions {
+        flex: 1 1 100%;
+    }
+
+    .toolbar-actions .btn {
+        flex: 1;
+    }
+
+    .row {
+        flex-wrap: wrap;
+        padding-inline: var(--space-s);
+    }
+
+    .shelf-tag {
+        padding-inline: var(--space-s);
+    }
+
+    /* Thumb, name and count on the first line; steppers on their own line. */
+    .row-main {
+        flex-basis: 8rem;
+    }
+
+    .stepper {
+        order: 5;
+        flex-basis: 100%;
+        justify-content: flex-end;
+    }
+
+    .scan-row {
+        flex-direction: column;
+    }
+
+    .scan-options .field {
+        flex-basis: 100%;
+    }
+
+    .scan-options > .btn {
+        width: 100%;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,40 @@
+/* ---- FormField --------------------------------------------------------- */
+
+.field {
+    display: grid;
+    gap: var(--space-2xs);
+    min-width: 0;
+}
+
+.field-label {
+    font-size: var(--step--1);
+    font-weight: 650;
+}
+
+.field-hint {
+    font-size: var(--step--1);
+    color: var(--text-muted);
+}
+
+.field-error {
+    font-size: var(--step--1);
+    font-weight: 600;
+    color: var(--color-danger-text);
+}
+
+.control {
+    width: 100%;
+    min-height: var(--touch);
+    padding: var(--space-xs) var(--space-s);
+    border: 1.5px solid var(--border-strong);
+    border-radius: var(--radius-md);
+    background: var(--bg-card);
+}
+
+.control::placeholder {
+    color: var(--text-muted);
+}
+
+.control[aria-invalid='true'] {
+    border-color: var(--color-danger);
+}

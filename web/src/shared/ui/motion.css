@@ -1,0 +1,9 @@
+/* Required on every screen: no motion for people who ask for none. */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}

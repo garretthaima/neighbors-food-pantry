@@ -1,10 +1,12 @@
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
-  test: {
-    include: ['test/**/*.test.ts'],
-    // Starting the throwaway Postgres takes a few seconds.
-    hookTimeout: 120_000,
-    fileParallelism: false,
-  },
+    test: {
+        // A module's tests live in its __tests__ folder. test/ holds helpers
+        // and the repo-wide structure test.
+        include: ['src/**/__tests__/**/*.test.ts', 'test/*.test.ts'],
+        globalSetup: ['test/globalSetup.ts'],
+        // Starting the throwaway Postgres takes a few seconds.
+        hookTimeout: 120_000,
+    },
 });

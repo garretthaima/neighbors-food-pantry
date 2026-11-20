@@ -1,0 +1,10 @@
+/* ---- Skeleton rows ---------------------------------------------------- */
+
+.skeleton-rows {
+    display: grid;
+    gap: var(--space-xs);
+}
+
+.skeleton-row {
+    height: 3.75rem;
+}

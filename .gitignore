@@ -8,3 +8,6 @@ coverage/
 *.log
 test-results/
 playwright-report/
+.claude/settings.local.json
+.claude/worktrees/
+__pycache__/

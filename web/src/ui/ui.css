@@ -1,0 +1,564 @@
+/* Base element styles and the shared primitives in this folder. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-primary);
+  font-size: 17px;
+  line-height: 1.45;
+  color: var(--text-primary);
+  background: var(--bg-page);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-page);
+}
+
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.display {
+  font-stretch: var(--display-stretch);
+  font-weight: var(--display-weight);
+  line-height: 1.05;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ---- Button ------------------------------------------------------------ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  min-height: var(--touch);
+  padding: var(--space-xs) var(--space-m);
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-md);
+  background: none;
+  font-weight: 650;
+  font-size: var(--step-0);
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 0.12s,
+    border-color 0.12s;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.btn svg {
+  flex: none;
+}
+
+.btn-sm {
+  min-height: 2.25rem;
+  padding: var(--space-2xs) var(--space-s);
+  font-size: var(--step--1);
+}
+
+.btn-lg {
+  min-height: 3.25rem;
+  padding: var(--space-s) var(--space-l);
+  font-size: var(--step-1);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn-icon {
+  width: var(--touch);
+  padding: 0;
+  border-radius: var(--radius-pill);
+}
+
+/* The one call to action on a screen. */
+.btn-cta {
+  background: var(--brand-tag);
+  border-color: var(--brand-tag-dark);
+  color: var(--color-on-tag);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-cta:hover:not(:disabled) {
+  background: var(--brand-tag-light);
+}
+
+.btn-primary {
+  background: var(--brand-green);
+  border-color: var(--brand-green);
+  color: var(--text-on-brand);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--brand-green-dark);
+  border-color: var(--brand-green-dark);
+}
+
+.btn-secondary {
+  background: var(--bg-card);
+  border-color: var(--brand-green);
+  color: var(--brand-green);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: var(--brand-green-subtle);
+}
+
+.btn-ghost {
+  color: var(--text-primary);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  background: var(--bg-hover);
+}
+
+.btn-danger {
+  background: var(--color-danger);
+  border-color: var(--color-danger);
+  color: var(--text-on-brand);
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: var(--color-danger-dark);
+  border-color: var(--color-danger-dark);
+}
+
+.btn-danger-outline {
+  background: var(--bg-card);
+  border-color: var(--color-danger);
+  color: var(--color-danger-text);
+}
+
+.btn-danger-outline:hover:not(:disabled) {
+  background: var(--color-danger-subtle);
+}
+
+/* Looks like text; used where a row's title opens that row. */
+.btn-link {
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-sm);
+  color: inherit;
+  font-weight: inherit;
+  text-align: left;
+  text-decoration: underline;
+  text-decoration-color: var(--border-strong);
+  text-underline-offset: 3px;
+}
+
+.btn-link:hover:not(:disabled) {
+  text-decoration-color: currentColor;
+}
+
+/* ---- Badge ------------------------------------------------------------- */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  padding: var(--space-3xs) var(--space-xs);
+  border-radius: var(--radius-pill);
+  font-size: var(--step--1);
+  font-weight: 650;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.badge-neutral {
+  background: var(--bg-hover);
+  color: var(--text-secondary);
+}
+
+.badge-success {
+  background: var(--color-success-subtle);
+  color: var(--brand-green-dark);
+}
+
+.badge-danger {
+  background: var(--color-danger-subtle);
+  color: var(--color-danger-text);
+}
+
+.badge-warning {
+  background: var(--color-warning-subtle);
+  color: var(--color-warning-text);
+}
+
+.badge-tag {
+  background: var(--brand-tag);
+  color: var(--color-on-tag);
+}
+
+/* ---- Card -------------------------------------------------------------- */
+
+.card {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.card-body {
+  padding: var(--space-m);
+}
+
+/* ---- FormField --------------------------------------------------------- */
+
+.field {
+  display: grid;
+  gap: var(--space-2xs);
+  min-width: 0;
+}
+
+.field-label {
+  font-size: var(--step--1);
+  font-weight: 650;
+}
+
+.field-hint {
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.field-error {
+  font-size: var(--step--1);
+  font-weight: 600;
+  color: var(--color-danger-text);
+}
+
+.control {
+  width: 100%;
+  min-height: var(--touch);
+  padding: var(--space-xs) var(--space-s);
+  border: 1.5px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+}
+
+.control::placeholder {
+  color: var(--text-muted);
+}
+
+.control[aria-invalid='true'] {
+  border-color: var(--color-danger);
+}
+
+/* ---- Segmented control ------------------------------------------------- */
+
+.segmented {
+  --segment-active: var(--brand-green);
+  display: flex;
+  flex-wrap: wrap; /* never a hidden horizontal scroll */
+  gap: var(--space-2xs);
+  padding: var(--space-2xs);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  background: var(--bg-raised);
+}
+
+.segmented button {
+  flex: 1 1 8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  min-height: var(--touch);
+  padding: var(--space-xs) var(--space-s);
+  border: 0;
+  border-radius: var(--radius-md);
+  background: none;
+  color: var(--text-secondary);
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.segmented button:hover {
+  background: var(--bg-hover);
+}
+
+.segmented button[aria-checked='true'] {
+  background: var(--segment-active);
+  color: var(--text-on-brand);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ---- ResponsivePanel: modal from 768px, bottom sheet below ------------- */
+
+.panel {
+  width: min(32rem, calc(100vw - 2 * var(--space-m)));
+  max-height: min(90dvh, 44rem);
+  padding: 0;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.panel[open] {
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-sm {
+  width: min(24rem, calc(100vw - 2 * var(--space-m)));
+}
+
+.panel::backdrop {
+  background: var(--overlay);
+}
+
+.panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-s);
+  padding: var(--space-s) var(--space-s) var(--space-s) var(--space-m);
+  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-raised);
+}
+
+.panel-head h2 {
+  font-size: var(--step-3);
+}
+
+.panel-body {
+  padding: var(--space-m);
+  overflow-y: auto;
+}
+
+.panel-foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--space-xs);
+  padding: var(--space-s) var(--space-m);
+  border-top: 1px solid var(--border-color);
+  background: var(--bg-raised);
+}
+
+.panel-foot .push-left {
+  margin-right: auto;
+}
+
+@media (max-width: 47.99rem) {
+  .panel,
+  .panel-sm {
+    width: 100%;
+    max-width: 100%;
+    max-height: 92dvh;
+    margin: auto 0 0;
+    border-width: 1px 0 0;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  }
+
+  /* Actions sit at the thumb: the confirming one full width on top, the
+     rest sharing the row under it. */
+  .panel-foot {
+    padding-bottom: max(var(--space-s), env(safe-area-inset-bottom));
+  }
+
+  .panel-foot .btn {
+    flex: 1 1 auto;
+    white-space: nowrap;
+  }
+
+  .panel-foot .btn-primary,
+  .panel-foot .btn-danger,
+  .panel-foot .btn-cta {
+    order: -1;
+    flex-basis: 100%;
+  }
+
+  .panel-foot .push-left {
+    margin-right: 0;
+  }
+}
+
+/* ---- ErrorAlert, EmptyState, Skeleton ---------------------------------- */
+
+.error-alert {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-s);
+  padding: var(--space-s) var(--space-m);
+  border: 1px solid var(--color-danger);
+  border-radius: var(--radius-lg);
+  background: var(--color-danger-subtle);
+  color: var(--color-danger-text);
+  font-weight: 550;
+}
+
+.error-alert p {
+  flex: 1 1 14rem;
+}
+
+.empty-state {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-s);
+  max-width: 28rem;
+  margin: var(--space-xl) auto;
+  padding: var(--space-l) var(--space-m);
+  text-align: center;
+}
+
+.empty-state-icon {
+  display: grid;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: var(--radius-lg);
+  background: var(--brand-tag-subtle);
+  color: var(--brand-green);
+}
+
+.empty-state h1,
+.empty-state h2 {
+  font-size: var(--step-3);
+}
+
+.empty-state p {
+  color: var(--text-secondary);
+}
+
+.empty-state-action {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-xs);
+  margin-top: var(--space-xs);
+}
+
+.skeleton {
+  border-radius: var(--radius-md);
+  background: var(--bg-hover);
+  animation: skeleton-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes skeleton-pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* ---- Toast ------------------------------------------------------------- */
+
+.toasts {
+  /* Reset the browser's popover box; this is only a positioned stack. */
+  inset: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  overflow: visible;
+  position: fixed;
+  left: 50%;
+  bottom: calc(var(--space-m) + env(safe-area-inset-bottom));
+  z-index: var(--z-toast);
+  transform: translateX(-50%);
+  gap: var(--space-xs);
+  width: min(26rem, calc(100vw - 2 * var(--space-m)));
+  pointer-events: none;
+}
+
+.toasts:popover-open {
+  display: grid;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: var(--space-xs) var(--space-xs) var(--space-xs) var(--space-m);
+  border-radius: var(--radius-lg);
+  background: var(--text-primary);
+  color: var(--text-on-brand);
+  box-shadow: var(--shadow-lg);
+  font-weight: 550;
+  animation: toast-in 0.18s ease-out;
+}
+
+/* A toast never blocks what is under it: only its close button takes taps. */
+.toast .btn {
+  pointer-events: auto;
+}
+
+.toast p {
+  flex: 1;
+}
+
+.toast-error {
+  background: var(--color-danger-dark);
+}
+
+.toast .btn-ghost {
+  color: var(--text-on-brand);
+}
+
+.toast .btn-ghost:hover {
+  background: var(--hover-on-dark);
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+}
+
+/* Required on every screen: no motion for people who ask for none. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

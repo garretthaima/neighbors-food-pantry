@@ -1,0 +1,6 @@
+apiVersion: v2
+name: pantry-inventory
+description: Food pantry inventory (Express + React in one image, with its own Postgres).
+type: application
+version: 0.1.0
+appVersion: "0.1.0"

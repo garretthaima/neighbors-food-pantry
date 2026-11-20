@@ -1,0 +1,605 @@
+/* Page layout. Tokens only: no raw colours, radii or shadows in this file. */
+
+/* ---- Shell ------------------------------------------------------------- */
+
+.masthead {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-nav);
+  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-card);
+}
+
+.masthead-inner {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: var(--space-xs) var(--space-m);
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-right: auto;
+  border-radius: var(--radius-sm);
+  color: var(--brand-green);
+  font-size: var(--step-3);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* A shelf with a yellow tag on its edge. */
+.wordmark-mark {
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(
+    to bottom,
+    var(--brand-green) 0 62%,
+    var(--brand-tag) 62% 86%,
+    var(--brand-green) 86%
+  );
+}
+
+.main-nav {
+  display: flex;
+  gap: var(--space-2xs);
+}
+
+.main-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  min-height: var(--touch);
+  padding: var(--space-xs) var(--space-s);
+  border-radius: var(--radius-pill);
+  color: var(--text-secondary);
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.main-nav a:hover {
+  background: var(--bg-hover);
+}
+
+.main-nav a[aria-current='page'] {
+  background: var(--brand-green);
+  color: var(--text-on-brand);
+}
+
+main {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: var(--space-l) var(--space-m) var(--space-2xl);
+}
+
+.muted {
+  color: var(--text-muted);
+  font-size: var(--step--1);
+}
+
+/* ---- Page head and toolbar --------------------------------------------- */
+
+.page-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xs) var(--space-m);
+  margin-bottom: var(--space-m);
+}
+
+.page-head h1 {
+  font-size: var(--step-5);
+}
+
+.page-head-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-s);
+  margin-bottom: var(--space-l);
+}
+
+.search {
+  position: relative;
+  flex: 1 1 16rem;
+}
+
+.search svg {
+  position: absolute;
+  left: var(--space-s);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.search .control {
+  padding-left: calc(var(--space-s) * 2 + 18px);
+}
+
+.filter {
+  flex: 0 1 auto;
+}
+
+.filter button {
+  flex-basis: auto;
+}
+
+.toolbar-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+/* ---- Shelves ----------------------------------------------------------- */
+
+.shelf {
+  margin-bottom: var(--space-l);
+}
+
+/* The yellow ticket strip clipped to the front edge of a store shelf. */
+.shelf-tag {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-m);
+  padding: var(--space-xs) var(--space-m);
+  background: var(--brand-tag);
+  border-bottom: 3px solid var(--text-primary);
+  color: var(--color-on-tag);
+}
+
+.shelf-tag h2 {
+  font-size: var(--step-3);
+}
+
+.shelf-tag span {
+  font-size: var(--step--1);
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.shelf-tag.unplaced {
+  background: var(--bg-hover);
+  border-bottom-color: var(--border-strong);
+}
+
+.card-title {
+  padding: var(--space-s) var(--space-m);
+  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-raised);
+  font-size: var(--step-1);
+}
+
+/* ---- Rows -------------------------------------------------------------- */
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding: var(--space-xs) var(--space-m);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.row:last-child {
+  border-bottom: 0;
+}
+
+.row-main {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  justify-items: start;
+  gap: var(--space-3xs);
+}
+
+.row-name {
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+
+.row-detail {
+  color: var(--text-muted);
+  font-size: var(--step--1);
+}
+
+.row-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2xs) var(--space-xs);
+}
+
+.row-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+  margin-top: var(--space-2xs);
+}
+
+.row.is-out .row-name {
+  color: var(--text-muted);
+}
+
+.row.is-out .thumb {
+  opacity: 0.55;
+}
+
+.row.is-latest {
+  padding-block: var(--space-m);
+  background: var(--bg-raised);
+  box-shadow: inset 5px 0 0 var(--brand-green);
+}
+
+.row.is-latest .row-name {
+  font-size: var(--step-2);
+}
+
+.row.is-problem {
+  background: var(--color-danger-subtle);
+  color: var(--color-danger-text);
+  font-weight: 600;
+}
+
+.thumb {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: var(--touch);
+  height: var(--touch);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--bg-raised);
+  color: var(--text-muted);
+  overflow: hidden;
+}
+
+.thumb-lg {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.stepper {
+  display: flex;
+  gap: var(--space-2xs);
+}
+
+.stepper .btn {
+  border-color: var(--border-color);
+  background: var(--bg-card);
+}
+
+.qty,
+.qty-out {
+  min-width: 3rem;
+  text-align: right;
+}
+
+.qty {
+  font-size: var(--step-4);
+  font-variant-numeric: tabular-nums;
+}
+
+.delta {
+  min-width: 2.75rem;
+  text-align: right;
+  font-size: var(--step-3);
+  font-variant-numeric: tabular-nums;
+}
+
+.delta.is-plus {
+  color: var(--color-success);
+}
+
+.delta.is-minus {
+  color: var(--color-danger);
+}
+
+/* ---- Scan -------------------------------------------------------------- */
+
+.scan-card {
+  --mode: var(--brand-green);
+  display: grid;
+  gap: var(--space-m);
+  padding: var(--space-m);
+  margin-bottom: var(--space-l);
+  border-top: 6px solid var(--mode);
+}
+
+.scan-card.is-giving {
+  --mode: var(--color-danger);
+}
+
+.scan-card .segmented {
+  --segment-active: var(--mode);
+}
+
+.scan-label {
+  display: block;
+  margin-bottom: var(--space-xs);
+  font-weight: 650;
+}
+
+.scan-row {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.scan-input {
+  flex: 1;
+  min-width: 0;
+  min-height: 3.25rem;
+  border-width: 2px;
+  border-color: var(--text-primary);
+  font-size: var(--step-3);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+.scan-options {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--space-s);
+}
+
+.scan-options .field {
+  flex: 0 1 18rem;
+}
+
+.camera video {
+  width: 100%;
+  max-height: 50vh;
+  border-radius: var(--radius-md);
+  background: var(--text-primary);
+  object-fit: cover;
+}
+
+/* ---- Activity ---------------------------------------------------------- */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: var(--space-m);
+  margin: 0 0 var(--space-l);
+}
+
+.stat {
+  padding: var(--space-m);
+}
+
+.stat dt {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.stat dd {
+  margin: var(--space-2xs) 0 0;
+  font-size: var(--step-5);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- Forms, gate, shelf list ------------------------------------------- */
+
+.gate {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-s);
+  max-width: 24rem;
+  margin: var(--space-xl) auto;
+  padding: var(--space-l);
+  text-align: center;
+}
+
+.gate h1 {
+  font-size: var(--step-3);
+}
+
+.gate p {
+  color: var(--text-secondary);
+}
+
+.pin-form {
+  display: grid;
+  gap: var(--space-s);
+  width: 100%;
+  text-align: left;
+}
+
+.form-note {
+  margin-bottom: var(--space-m);
+  padding: var(--space-s);
+  border-radius: var(--radius-md);
+  background: var(--brand-tag-subtle);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-s) var(--space-m);
+}
+
+.form-grid .wide {
+  grid-column: 1 / -1;
+}
+
+.inline-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: var(--space-xs);
+}
+
+/* Lines the button up with the input, under the label. */
+.inline-form > .btn {
+  margin-top: calc(var(--step--1) * 1.45 + var(--space-2xs));
+}
+
+.shelf-list {
+  margin-top: var(--space-m);
+  border-top: 1px solid var(--border-color);
+}
+
+.shelf-list li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-2xs) 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.shelf-list-name {
+  flex: 1;
+  min-width: 0;
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+
+.shelf-rename {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.shelf-rename .field {
+  flex: 1;
+}
+
+.skeleton-rows {
+  display: grid;
+  gap: var(--space-xs);
+}
+
+.skeleton-row {
+  height: 3.75rem;
+}
+
+/* ---- Phone: nav at the thumb, rows wrap -------------------------------- */
+
+@media (max-width: 47.99rem) {
+  /* The bottom of a phone screen holds the nav and whatever was just
+     scanned, so toasts drop in under the masthead instead. */
+  .toasts {
+    top: calc(var(--masthead) + var(--space-xs));
+    bottom: auto;
+  }
+
+  .main-nav {
+    position: fixed;
+    inset: auto 0 0;
+    z-index: var(--z-nav);
+    justify-content: space-around;
+    gap: 0;
+    padding: var(--space-2xs) var(--space-xs) max(var(--space-2xs), env(safe-area-inset-bottom));
+    border-top: 1px solid var(--border-color);
+    background: var(--bg-card);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .main-nav a {
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-3xs);
+    min-height: calc(var(--bottom-nav) - var(--space-xs));
+    padding: var(--space-2xs);
+    border-radius: var(--radius-md);
+    font-size: var(--step--1);
+  }
+
+  .main-nav a[aria-current='page'] {
+    background: var(--brand-green-subtle);
+    color: var(--brand-green-dark);
+  }
+
+  main {
+    padding-top: var(--space-m);
+    padding-bottom: calc(var(--bottom-nav) + var(--space-xl));
+  }
+
+  .wordmark {
+    font-size: var(--step-2);
+  }
+
+  .page-head h1 {
+    font-size: var(--step-4);
+  }
+
+  .filter {
+    flex: 1 1 100%;
+  }
+
+  .filter button {
+    flex: 1;
+  }
+
+  .toolbar-actions {
+    flex: 1 1 100%;
+  }
+
+  .toolbar-actions .btn {
+    flex: 1;
+  }
+
+  .row {
+    flex-wrap: wrap;
+    padding-inline: var(--space-s);
+  }
+
+  .shelf-tag {
+    padding-inline: var(--space-s);
+  }
+
+  /* Thumb, name and count on the first line; steppers on their own line. */
+  .row-main {
+    flex-basis: 8rem;
+  }
+
+  .stepper {
+    order: 5;
+    flex-basis: 100%;
+    justify-content: flex-end;
+  }
+
+  .scan-row {
+    flex-direction: column;
+  }
+
+  .scan-options .field {
+    flex-basis: 100%;
+  }
+
+  .scan-options > .btn {
+    width: 100%;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}

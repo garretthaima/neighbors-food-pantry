@@ -1,0 +1,8 @@
+**/node_modules
+**/dist
+.devdb
+.env
+.env.*
+.git
+deploy
+server/test

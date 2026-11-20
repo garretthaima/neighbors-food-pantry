@@ -1,0 +1,56 @@
+# Chart defaults. Set image, hosts and gateway for your cluster.
+
+images:
+  # The app image, ideally digest-pinned (ghcr.io/...@sha256:...). Required.
+  app: ""
+  postgres: "docker.io/library/postgres:16-alpine"
+
+# Pull secrets for a private registry, e.g. [{ name: ghcr-pull }].
+imagePullSecrets: []
+
+secrets:
+  # Existing Secret in the release namespace. Required keys:
+  #   DB_PASSWORD     Postgres password
+  #   EDIT_PIN        volunteers type this to scan and edit
+  #   SESSION_SECRET  long random string that signs the login cookie
+  # Optional key:
+  #   VIEW_PIN        if present, viewing the inventory needs a PIN too
+  name: pantry-inventory-secrets
+
+# The Gateway the HTTPRoute attaches to.
+gateway:
+  name: ""
+  namespace: ""
+
+# Hostnames the app is served on (list). Required.
+hosts: []
+
+database:
+  name: pantry
+  owner: pantry
+
+app:
+  replicas: 1
+  port: 4000
+  # Extra non-secret env, merged over the computed PORT / PG* variables.
+  env:
+    # Sent to the barcode lookup services, which ask clients to identify
+    # themselves.
+    LOOKUP_USER_AGENT: "pantry-inventory/0.1"
+  resources:
+    requests:
+      cpu: 25m
+      memory: 96Mi
+    limits:
+      memory: 256Mi
+
+postgres:
+  storage: 1Gi
+  # Empty = cluster default StorageClass.
+  storageClassName: ""
+  resources:
+    requests:
+      cpu: 25m
+      memory: 128Mi
+    limits:
+      memory: 384Mi
